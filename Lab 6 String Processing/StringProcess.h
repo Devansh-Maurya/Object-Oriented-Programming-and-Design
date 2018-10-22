@@ -1,0 +1,14 @@
+//
+// Created by devansh on 11/9/18.
+//
+
+#ifndef LAB_6_STRING_PROCESSING_STRINGPROCESS_H
+#define LAB_6_STRING_PROCESSING_STRINGPROCESS_H
+
+
+class StringProcess {
+
+};
+
+
+#endif //LAB_6_STRING_PROCESSING_STRINGPROCESS_H
