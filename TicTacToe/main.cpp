@@ -10,9 +10,7 @@ int main() {
     string move;
     bool p1Turn = true;
     int choice;
-
     TicTacToeGame game(3, player1, player2);
-
 
     start:
     cout << "Who will start first (0 : Player 1, 1 : Player 2): ";
@@ -50,10 +48,15 @@ int main() {
         if (game.hasFinished())
             break;
 
-        p1Turn = !p1Turn;       //To change turn
+        p1Turn = !p1Turn;                  //To change turn
     }
 
     game.displayInstance();
+
+    if (game.getWinner() == "") {
+        cout << "Game ended up in a draw!\n";
+        return 0;
+    }
 
     cout << "Game has been won by: " << game.getWinner() << "\n";
 

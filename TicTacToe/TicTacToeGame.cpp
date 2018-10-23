@@ -11,8 +11,9 @@ private:
     TicTacToeBoard board;
     int size;
     char p1Symbol, p2Symbol;
-    string winner;
+    string winner = "";
     bool finished = false;
+    char** boardMatrix = board.getBoardMatrix();
 
 public:
 
@@ -34,15 +35,20 @@ public:
 
     void makeAMove(char player, string pos) {
 
-        int pos1 = pos.at(0) - 97;
-        int pos2 = pos.at(1) - 49;
+        int pos1, pos2;
+
+        if (pos.length() == 2) {
+            pos1 = pos.at(0) - 97;
+            pos2 = pos.at(1) - 49;
+        } else
+            throw "Invalid position\n";
 
         //Check for valid player
         if (player != p1Symbol && player != p2Symbol)
             throw "Invalid player\n";
 
         //Check for correct position
-        if (pos1 >= size || pos1 < 0 || pos2 >= size || pos2 < 0 )
+        if (pos1 >= size || pos1 < 0 || pos2 >= size || pos2 < 0 || boardMatrix[pos1][pos2] != ' ')
             throw "Invalid position\n";
         else
             board.setBoardPosition(player, pos1, pos2);
@@ -50,13 +56,16 @@ public:
 
     bool hasFinished() {
 
-        char** boardMatrix = board.getBoardMatrix();
         int p1Count = 0;
         int p2Count = 0;
+        bool noEmptyColumn = true;
 
         //Check combination in rows
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
+                if (boardMatrix[i][j] == ' ')
+                    noEmptyColumn = false;
+
                 if (boardMatrix[i][j] == p1Symbol)
                     p1Count++;
                 else if (boardMatrix[i][j] == p2Symbol)
@@ -101,7 +110,13 @@ public:
                 p2Count++;
         }
         checkWinner(p1Count, p2Count);
-        return finished;
+        if (finished)
+            return true;
+
+        if (noEmptyColumn && (winner == ""))
+            return true;
+
+        return false;
     }
 
 private:
