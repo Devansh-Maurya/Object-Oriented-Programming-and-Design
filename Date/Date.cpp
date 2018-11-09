@@ -38,12 +38,14 @@ class Date {
     }
 
     void incrementDate() {
+        //Check last date of year
         if (month == 12 && day == 31) {
             month = 1;
             day = 1;
             year++;
         } else {
             int lastDay = numberOfDays(month);
+            //If last date of month, increment month and reset date
             if (day == lastDay) {
                 month++;
                 day = 1;
@@ -53,12 +55,14 @@ class Date {
     }
 
     void decrementDate() {
+        //Check first date of the year
         if (month == 1 && day == 1) {
             month = 12;
             day = 31;
             year--;
         } else {
             int lastDay = numberOfDays(month-1);
+            //If first date of month, decrement month and reset date
             if (day == 1) {
                 month--;
                 day = lastDay;
@@ -108,22 +112,26 @@ public:
         cout << day << " / " << month << " / " << year;
     }
 
+    //Prefix ++
     Date& operator++() {
         incrementDate();
         return *this;
     }
 
+    //Postfix ++
     const Date operator++(int x) {
         Date newDate(day, month, year);
         incrementDate();
         return newDate;
     }
 
+    //Prefix --
     Date& operator--() {
         decrementDate();
         return *this;
     }
 
+    //Postfix --
     const Date operator--(int x) {
         Date newDate(day, month, year);
         decrementDate();
