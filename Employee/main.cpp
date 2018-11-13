@@ -4,10 +4,10 @@ int main() {
 
     Employee employee;
 
-    cout << "Enter employee details: ";
+    cout << "\nEnter employee details:\n";
     cin >> employee;
 
-    cout << "Employee details:\n";
+    cout << "\nEmployee details:\n";
     cout << employee << endl;
 
     return 0;

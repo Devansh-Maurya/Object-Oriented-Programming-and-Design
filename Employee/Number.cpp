@@ -2,23 +2,22 @@
 // Created by user on 11/6/18.
 //
 #include <iostream>
-#include <pgtypes_interval.h>
 
 using namespace std;
 
 class Number {
 
-    int64 mobile;
+    unsigned long long mobile;
     int areaCode;
     int landline;
 
 public:
 
-    int64 getMobileNumber() const {
+    unsigned long long getMobileNumber() const {
         return mobile;
     }
 
-    void setMobile(int64 mobile) {
+    void setMobile(unsigned long long mobile) {
         if (mobile > 0)
             Number::mobile = mobile;
     }
