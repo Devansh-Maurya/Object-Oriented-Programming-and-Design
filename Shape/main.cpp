@@ -20,6 +20,7 @@ int main() {
         if (shapes[i]->getDimension() == 3)
             cout << ((ThreeDimensionalShape*) shapes[i])->getVolume() << endl;
         cout << endl;
+        delete shapes[i];
     }
 
     return 0;
