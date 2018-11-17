@@ -54,4 +54,44 @@ public:
     double getWeight() const {
         return weight;
     }
+
+    const string& getSenderName() {
+        return sender.getName();
+    }
+
+    const string& getReceiverName() {
+        return receiver.getName();
+    }
+
+    const string& getSenderAddress() {
+        return sender.getAddress();
+    }
+
+    const string& getReceiverAddress() {
+        return receiver.getAddress();
+    }
+
+    const string& getSenderCity() {
+        return sender.getCity();
+    }
+
+    const string& getReceiverCity() {
+        return receiver.getCity();
+    }
+
+    const string& getSenderState() {
+        return sender.getState();
+    }
+
+    const string& getReceiverState() {
+        return receiver.getState();
+    }
+
+    const int getSenderZipCode() {
+        return sender.getZipCode();
+    }
+
+    const int getReceiverZipCode() {
+        return receiver.getZipCode();
+    }
 };
