@@ -16,9 +16,9 @@ int main() {
     shapes[5] = new Tetrahedron(4);
 
     for (int i = 0; i < 6; ++i) {
-        cout << shapes[i]->getArea() << endl;
+        cout << shapes[i]->getArea() << "unit square" << endl;
         if (shapes[i]->getDimension() == 3)
-            cout << ((ThreeDimensionalShape*) shapes[i])->getVolume() << endl;
+            cout << ((ThreeDimensionalShape*) shapes[i])->getVolume() << "unit cube" << endl;
         cout << endl;
         delete shapes[i];
     }
