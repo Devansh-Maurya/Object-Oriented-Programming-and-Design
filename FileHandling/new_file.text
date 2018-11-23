@@ -1,0 +1,43 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+char skipMultipleSpaces(ifstream&);
+
+int main() {
+
+ ifstream fin("main.cpp");
+ ofstream fout("new_file.text");
+ char ch;
+
+ while (fin) {
+ if (fin.get(ch)) {
+ fout.put(ch);
+ if (ch == ' ')
+ fout.put(skipMultipleSpaces(fin));
+ }
+ }
+ 
+ fin.close();
+ fout.close();
+
+ return 0;
+}
+
+char skipMultipleSpaces(ifstream& fin) {
+
+ char ch = 0;
+
+ while (fin) {
+ if (fin.get(ch)) {
+ if (ch != ' ')
+ break;
+ }
+ }
+ return ch;
+}
+
+
+
+
